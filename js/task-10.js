@@ -5,15 +5,18 @@ function getRandomHexColor() {
 }
 
 function createBoxes(amount) { 
- 
+
+
+  let newBoxes = [];
   for (let i = 1; i <= amount; i += 1) { 
     let newBox = document.createElement('div');
     let j = 10 * (i-1);
     newBox.style.width = `${30 + j}px`;
     newBox.style.height = `${30 + j}px`;
     newBox.style.backgroundColor = getRandomHexColor();
-    selectors.boxes.append(newBox);
+    newBoxes.push(newBox)
       }
+  selectors.boxes.append(...newBoxes);
  }
 
 const selectors = {                                   
@@ -44,5 +47,3 @@ function handlerDestroy() {
   input.value = '';
   selectors.boxes.innerHTML = '';
 }
-
-
